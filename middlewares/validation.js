@@ -9,30 +9,34 @@ const validateURL = (value, helpers) => {
 };
 
 const validateSignup = celebrate({
-  body: Joi.object().keys({
-    email: Joi.string().required().email(),
-    password: Joi.string().required(),
-    name: Joi.string().required().min(2).max(30),
-  }),
+  body: Joi.object()
+    .required()
+    .keys({
+      email: Joi.string().required().email(),
+      password: Joi.string().required(),
+      name: Joi.string().required().min(2).max(30),
+    }),
 });
 
 const validateSignin = celebrate({
-  body: Joi.object().keys({
+  body: Joi.object().required().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required(),
   }),
 });
 
 const validateArticle = celebrate({
-  body: Joi.object().keys({
-    keyword: Joi.string().required(),
-    title: Joi.string().required(),
-    text: Joi.string().required(),
-    date: Joi.string().required(),
-    source: Joi.string().required(),
-    link: Joi.string().required().custom(validateURL),
-    image: Joi.string().required().custom(validateURL),
-  }),
+  body: Joi.object()
+    .required()
+    .keys({
+      keyword: Joi.string().required(),
+      title: Joi.string().required(),
+      text: Joi.string().required(),
+      date: Joi.string().required(),
+      source: Joi.string().required(),
+      link: Joi.string().required().custom(validateURL),
+      image: Joi.string().required().custom(validateURL),
+    }),
 });
 
 const validateArticleId = celebrate({
