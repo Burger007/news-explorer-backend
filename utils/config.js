@@ -1,0 +1,8 @@
+const {
+  NODE_ENV = "development",
+  JWT_SECRET = "dev-secret",
+  MONGO_URL = "mongodb://127.0.0.1:27017/newsexplorer_db",
+  PORT = 3000,
+} = process.env;
+
+module.exports = { NODE_ENV, JWT_SECRET, MONGO_URL, PORT };
